@@ -1,0 +1,34 @@
+#端口
+server:
+  port: 1009
+
+#服务名称
+spring:
+  application:
+    name: service-gateway
+
+  #nacos注册中心
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+#        namespace: 6a40e240-0b3b-4f78-8b52-877aca727ff5
+
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8333
+#        port: 8719
+
+    #服务发现路由
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+      #设置路由
+      routes:
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/user/**
+

@@ -1,0 +1,31 @@
+server:
+  port: 1001
+
+#服务名称
+spring:
+  application:
+    name: service-user
+
+  #mysq连接
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.169:3306/mytest?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848  #注册地址
+#        namespace: 6a40e240-0b3b-4f78-8b52-877aca727ff5  #命名空间
+
+
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8333
+#        port: 8719
+
+#feign:
+#  sentinel:
+#    enabled: true
+
