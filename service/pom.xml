@@ -17,30 +17,30 @@
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>com.sjh</groupId>
-            <artifactId>common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.sjh</groupId>-->
+<!--            <artifactId>common</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
-        <!--服务注册-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
+<!--        &lt;!&ndash;服务注册&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--        </dependency>-->
 
-        <!--配置管理-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>2.2.1.RELEASE</version>
-        </dependency>
+<!--        &lt;!&ndash;配置管理&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+<!--            <version>2.2.1.RELEASE</version>-->
+<!--        </dependency>-->
 
-        <!--服务调用-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
+<!--        &lt;!&ndash;服务调用&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
+<!--        </dependency>-->
 
         <!--服务降级、熔断-->
 <!--        <dependency>-->

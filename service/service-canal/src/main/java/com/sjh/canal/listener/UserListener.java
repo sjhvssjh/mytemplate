@@ -2,8 +2,7 @@ package com.sjh.canal.listener;
 
 import com.alibaba.otter.canal.protocol.CanalEntry;
 import com.xpand.starter.canal.annotation.CanalEventListener;
-import com.xpand.starter.canal.annotation.InsertListenPoint;
-import com.xpand.starter.canal.annotation.UpdateListenPoint;
+import com.xpand.starter.canal.annotation.ListenPoint;
 
 /**
  * @program:
@@ -14,22 +13,14 @@ import com.xpand.starter.canal.annotation.UpdateListenPoint;
 @CanalEventListener
 public class UserListener {
 
-    @InsertListenPoint
-    public void addListener(CanalEntry.EventType eventType, CanalEntry.RowData rowData){
-        System.out.println("==============>:"+eventType);
-        for (CanalEntry.Column column : rowData.getAfterColumnsList()) {
-            System.out.println("=======>:"+column.getName()+",=======>:"+column.getValue());
-        }
+    /**
+     * 自定义监控binlog
+     * @param eventType
+     * @param rowData
+     */
+    @ListenPoint(eventType = {CanalEntry.EventType.UPDATE}, schema = {"yilu_mall"}, table = {"t_user"}, destination = "example")
+    public void myListener(CanalEntry.EventType eventType, CanalEntry.RowData rowData){
+        System.out.println(rowData.getBeforeColumnsList().get(3).getValue()+"==============>"+rowData.getAfterColumnsList().get(3).getValue());
     }
 
-    @UpdateListenPoint
-    public void updateListener(CanalEntry.EventType eventType, CanalEntry.RowData rowData){
-        System.out.println("==============>:"+eventType);
-        for (CanalEntry.Column column : rowData.getBeforeColumnsList()) {
-            System.out.println("=======>:"+column.getName()+",=======>:"+column.getValue());
-        }
-        for (CanalEntry.Column column : rowData.getAfterColumnsList()) {
-            System.out.println("=======>:"+column.getName()+",=======>:"+column.getValue());
-        }
-    }
 }

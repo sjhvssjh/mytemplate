@@ -23,12 +23,4 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
-<!--        <dependencies>-->
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba.otter</groupId>-->
-<!--                <artifactId>canal.client</artifactId>-->
-<!--                <version>1.1.0</version>-->
-<!--            </dependency>-->
-<!--        </dependencies>-->
 </project>
