@@ -4,7 +4,6 @@ import com.sjh.common.ReturnResult;
 import com.sjh.user.entity.User;
 import com.sjh.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,20 +18,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 
-    @Value("${configtest}")
-    private long configTest;
-
     @Autowired
     UserService userService;
 
     @GetMapping("getAllUser")
     public ReturnResult getAllUser(){
         return userService.getAllUser();
-    }
-
-    @GetMapping("getConfigTest")
-    public long getConfigTest(){
-        return configTest;
     }
 
     @PostMapping("addUser")

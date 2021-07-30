@@ -1,24 +1,42 @@
 server:
   port: 1001
 
-#服务名称
 spring:
-  application:
-    name: service-user
-
   #mysq连接
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.0.169:3306/mytest?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://192.168.0.169:3306/mytest?useUnicode=true&characterEncoding=utf-8&useSSL=true
     username: root
     password: 123456
 
   cloud:
     nacos:
+      # 注册中心
       discovery:
-        server-addr: localhost:8848  #注册地址
-#        namespace: 6a40e240-0b3b-4f78-8b52-877aca727ff5  #命名空间
+        server-addr: localhost:8848
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
 
+  zipkin:
+    base-url: http://192.168.0.169:9411/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0  #采样的百分比
+
+logging:
+    level:
+      root: INFO
+      org:
+        springframework:
+          cloud:
+            sleuth: DEBUG
+            openfeign: DEBUG
+          web:
+            servlet:
+              DispatcherServlet: DEBUG
 
 #    sentinel:
 #      transport:
@@ -28,4 +46,3 @@ spring:
 #feign:
 #  sentinel:
 #    enabled: true
-

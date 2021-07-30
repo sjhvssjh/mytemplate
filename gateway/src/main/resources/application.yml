@@ -6,13 +6,11 @@ server:
 spring:
   application:
     name: service-gateway
-
   #nacos注册中心
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
-#        namespace: 6a40e240-0b3b-4f78-8b52-877aca727ff5
 
 #    sentinel:
 #      transport:
@@ -24,11 +22,30 @@ spring:
       discovery:
         locator:
           enabled: true
-
       #设置路由
       routes:
         - id: service-user
           uri: lb://service-user
           predicates:
             - Path=/user/**
+
+  zipkin:
+    base-url: http://192.168.0.169:9411/
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0  #采样的百分比
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        cloud:
+          sleuth: DEBUG
+          openfeign: DEBUG
+        web:
+          servlet:
+            DispatcherServlet: DEBUG
 
